@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Root>
+<TimeOut>
+<PlayerAliveTimeOutMultiplier>2</PlayerAliveTimeOutMultiplier>
+<PlayerLocalProcess>5000</PlayerLocalProcess>
+</TimeOut>
+<Player>
+<PlayerType>PlayerLocalProcess</PlayerType>
+<ProcessLocation>C:\viji\spoj problema\Test.exe</ProcessLocation>
+</Player>
+</Root>
