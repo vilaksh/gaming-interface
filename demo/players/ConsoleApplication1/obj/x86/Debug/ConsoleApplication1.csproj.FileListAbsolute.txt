@@ -1,0 +1,5 @@
+D:\Projects\gaming-interface\branches\main\demo\players\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+D:\Projects\gaming-interface\branches\main\demo\players\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+D:\Projects\gaming-interface\branches\main\demo\players\ConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Projects\gaming-interface\branches\main\demo\players\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+D:\Projects\gaming-interface\branches\main\demo\players\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
