@@ -227,11 +227,11 @@ public class PlayerLocalProcess extends Player
 			timeOut.interrupt();
 			
 			line = _internal_read();
-			while (line != null)
-			{
+			//while (line != null)
+			//{
 				ret.outputFromPlayer.add(line);
-				line = _internal_read();
-			}
+				//line = _internal_read();
+			//}
 			ret.outputType = PlayerOutputType.CorrectOutput;
 			
 			Logger.LogMessage("Output successfully read from player " + 
