@@ -11,6 +11,7 @@
 
   <Player>
     <PlayerType>PlayerLocalProcess</PlayerType>
-    <ProcessLocation>..\..\players\ConsoleApplication4\ConsoleApplication4\bin\Debug\ConsoleApplication4.exe</ProcessLocation>
+    <ProcessLocation>..\..\players\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe</ProcessLocation>
   </Player>
 </Root>
+
