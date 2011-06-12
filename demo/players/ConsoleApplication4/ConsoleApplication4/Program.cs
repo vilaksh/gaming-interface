@@ -7,12 +7,20 @@ namespace ConsoleApplication4
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             string status;
-            Random rand = new Random();
+            int[] x = { 0, 1, 0, 1,2 };
+            int[] y = { 0, 0, 2, 2,1 };
+
+            int[] x1 = { 1, 2, 0, 2 };
+            int[] y1 = { 1, 0, 1, 2 };
+
+            int k = 0;
             while (true)
             {
+                
                 status = System.Console.ReadLine();
 
                 if (!status.Equals("c"))
@@ -23,8 +31,9 @@ namespace ConsoleApplication4
                     string pos = System.Console.ReadLine();
                 }
 
-                System.Console.WriteLine(rand.Next(3).ToString());
-                System.Console.WriteLine(rand.Next(3).ToString());
+                System.Console.WriteLine(x[k]);
+                System.Console.WriteLine(y[k]);
+                k++;
             }
         }
     }
