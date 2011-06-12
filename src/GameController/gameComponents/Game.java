@@ -13,18 +13,28 @@ public abstract class Game
 	protected abstract Integer _get_next_player();
 	protected abstract Integer _get_current_player();
 	
-	public PlayerOutput GetPlayerOutput()
+	/*public PlayerOutput GetPlayerOutput()
 	{
 		Integer playerId = _get_current_player();
 		return _player_controller.GetData(playerId);
+	}*/
+	
+	public PlayerOutput GetPlayerOutput(int playerId)
+	{
+		return _player_controller.GetData(playerId);
 	}
 	
-	public boolean SendPlayerInput(ArrayList<String> inputToPlayer)
+	/*public boolean SendPlayerInput(ArrayList<String> inputToPlayer)
 	{
 		Integer playerId = _get_next_player();
 		return _player_controller.SendData(playerId, inputToPlayer);
-	}
+	}*/
 	 
+	public boolean SendPlayerInput(int playerId, ArrayList<String> inputToPlayer)
+	{
+		return _player_controller.SendData(playerId, inputToPlayer);
+	}
+	
 	public abstract boolean ExecuteGame(); 
 	
 	public Game(String configFile)

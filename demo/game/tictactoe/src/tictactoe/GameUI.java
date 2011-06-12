@@ -147,14 +147,14 @@ class GameBoard extends Canvas {
 		_i_player1_symbol = Toolkit
 				.getDefaultToolkit()
 				.getImage(
-						"D:\\Projects\\gameinterface\\main\\demo\\game\\tictactoe\\src\\resources\\cross.jpg"); // TODO:
+						".\\resources\\x.jpg"); // TODO:
 																												// Use
 																												// SVG
 																												// images
 		_i_player2_symbol = Toolkit
 				.getDefaultToolkit()
 				.getImage(
-						"D:\\Projects\\gameinterface\\main\\demo\\game\\tictactoe\\src\\resources\\o.jpg"); // TODO:
+						".\\resources\\o.jpg"); // TODO:
 																											// Use
 																											// SVG
 																											// images

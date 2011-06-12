@@ -102,23 +102,23 @@ public class GameEngine extends Game {
 		return false;
 	}
 
-	private boolean CheckAndSendGameStatus() {
+	private boolean CheckAndSendGameStatus(int current_player) {
 		ArrayList<String> inputArray = new ArrayList<String>();
 		// Send Game status..
 		if (!isGameOver()) {
 			inputArray.clear();
 			inputArray.add("c");
-			SendPlayerInput(inputArray); // automatically increments the
+			SendPlayerInput(current_player, inputArray); // automatically increments the
 			return false;
 		} else {
-			if (_i_player_won == 0) {
+			if (_i_player_won == current_player) {
 				inputArray.add("w");
-			} else if (_i_player_won == 1) {
+			} else if (_i_player_won == 1 - current_player) {
 				inputArray.add("l");
 			} else {
 				inputArray.add("d");
 			}
-			SendPlayerInput(inputArray);
+			SendPlayerInput(current_player, inputArray);
 			return true;
 		}
 
@@ -130,58 +130,57 @@ public class GameEngine extends Game {
 
 		// send initial data to player 2
 
+		boolean game_over = false;
+		while (!game_over) {
+			int current_player = _get_next_player();
+			game_over = HandlePlayer(current_player);			
+		}
+		
+		return true;
+	}
+	
+	//returns true if game over..
+	private boolean HandlePlayer(int current_player)
+	{
+		int x, y;
 		ArrayList<String> outArray = new ArrayList<String>();
 		ArrayList<String> inArray = new ArrayList<String>();
 
-		while (true) {
 
-			int x, y;
+		
+		// get input from current player
+		if (CheckAndSendGameStatus(current_player))
+			return true;
 
-			// get input from current player
-			if (CheckAndSendGameStatus())
-				return true;
-
-			outArray.clear();
-			for(int i = 0; i < 9; i++)
-			{
-				outArray.add(((Integer)matrix[i]).toString());
-			}
-			SendPlayerInput(outArray);
-			SendPlayerInput(outArray);
-			
-			_get_next_player(); //bcoz SendPlayerInput auto increments..
-			
-			// assuming i get both the inputs i.e. x,y coordinate together.. is
-			// this ok?
-			PlayerOutput out1 = GetPlayerOutput();
-			if (out1.outputType != PlayerOutputType.CorrectOutput) {
-				_player_won_coz_err = 1;
-			} else {
-				inArray = out1.outputFromPlayer;
-				x = Integer.parseInt(inArray.get(0));
-				y = Integer.parseInt(inArray.get(1));
-
-				_gb_board.updateBoard(x, y, Owner.Player1);
-			}
-			
-			// get input from current player
-			if (CheckAndSendGameStatus())
-				return true;
-
-			out1 = GetPlayerOutput();
-			if (out1.outputType != PlayerOutputType.CorrectOutput) {
-				_player_won_coz_err = 1;
-			} else {
-				inArray = out1.outputFromPlayer;
-
-				x = Integer.parseInt(inArray.get(0));
-				y = Integer.parseInt(inArray.get(1));
-
-				_gb_board.updateBoard(x, y, Owner.Player1);
-			}
-			
-			
+		//send board status
+		outArray.clear();
+		for(int i = 0; i < 9; i++)
+		{
+			outArray.add(((Integer)matrix[i]).toString());
 		}
+		SendPlayerInput(current_player, outArray);
+		
+		
+		//Get user input and update board
+		// assuming i get both the inputs i.e. x,y coordinate together.. is
+		// this ok?
+		PlayerOutput out1 = GetPlayerOutput(current_player);
+		PlayerOutput out2 = GetPlayerOutput(current_player);
+		if (out1.outputType != PlayerOutputType.CorrectOutput || out2.outputType != PlayerOutputType.CorrectOutput) {
+			_player_won_coz_err = 1-current_player;
+		} else {
+			inArray = out1.outputFromPlayer;
+			inArray.addAll(out2.outputFromPlayer);
+			x = Integer.parseInt(inArray.get(0));
+			y = Integer.parseInt(inArray.get(1));
+
+			if(current_player == 0)
+				_gb_board.updateBoard(x, y, Owner.Player1);
+			else
+				_gb_board.updateBoard(x, y, Owner.Player2);
+			matrix[x*3+y] = current_player;
+		}
+		return false;
 	}
 
 }
