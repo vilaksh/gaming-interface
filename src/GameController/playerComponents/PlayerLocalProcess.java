@@ -226,10 +226,10 @@ public class PlayerLocalProcess extends Player
 			}
 			timeOut.interrupt();
 			
-			line = _internal_read();
+			//line = _internal_read();
 			//while (line != null)
 			//{
-				ret.outputFromPlayer.add(line);
+				ret.outputFromPlayer.add(_output_from_process.readLine());
 				//line = _internal_read();
 			//}
 			ret.outputType = PlayerOutputType.CorrectOutput;
