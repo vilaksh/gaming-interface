@@ -216,7 +216,7 @@ public class PlayerLocalProcess extends Player
 				}
 				timeOut.interrupt();
 				
-				ret.outputFromPlayer = null;
+				ret.outputFromPlayer.add(_internal_read());
 				ret.outputType = PlayerOutputType.TimedOut;
 				
 				Logger.LogWarning("Player " + _process_location + " is alive, " +
