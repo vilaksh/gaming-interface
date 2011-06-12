@@ -31,8 +31,7 @@ namespace ConsoleApplication1
                 }
 
                 System.Console.WriteLine(x[k]);
-                if (k < 4)
-                    System.Console.WriteLine(y[k]);
+                System.Console.WriteLine(y[k]);
                 k++;
             }
         }
