@@ -57,7 +57,7 @@ public class TestingClasee {
 		Interface intface = new Interface();
 		
 		ArrayList<Integer> players = intface.InitializeGame(
-				"C:\\Enlistment\\main\\src\\GameController\\TestData\\ConfigFile.xml");
+				"D:\\Projects\\gaming-interface\\branches\\main\\src\\GameController\\TestData\\ConfigFile.xml");
 		
 		ArrayList<String> input = new ArrayList<String>();
 		PlayerOutput output;
