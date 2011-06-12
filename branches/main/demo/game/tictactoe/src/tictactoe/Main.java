@@ -9,6 +9,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		GameUI g = new GameUI();
 		g.setVisible(true);
+		g.executeGame();
 	}
 
 }

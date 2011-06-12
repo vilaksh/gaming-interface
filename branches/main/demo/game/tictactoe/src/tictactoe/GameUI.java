@@ -11,11 +11,15 @@ import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import playerGameInterface.Interface;
 
 /**
  * @author AlokUSC
@@ -38,8 +42,8 @@ public class GameUI extends JFrame {
 	private JLabel _l_player2_name;
 	private JLabel _l_player2_symbol;
 
-	private GameBoard _g_board;
-
+	private GameBoard _gb_board;
+	private GameEngine _ge_engine;
 	public GameUI() {
 		// set the window to square with side = min(width,height)/2
 		Dimension screenD = Toolkit.getDefaultToolkit().getScreenSize();
@@ -53,6 +57,23 @@ public class GameUI extends JFrame {
 
 		// Initialize the game UI
 		initializeUI();
+		
+		// Initialize game engine
+		initializeGame();
+				
+		
+	}
+
+	public void executeGame()
+	{
+		//execute Game
+		_ge_engine.ExecuteGame();		
+	}
+	private boolean initializeGame() {
+		
+		_ge_engine = new GameEngine(".\\config\\ConfigFile.xml");
+		_ge_engine.Initialize(_gb_board);
+		return true;
 	}
 
 	private void initializeUI() {
@@ -77,7 +98,7 @@ public class GameUI extends JFrame {
 																		// GameController
 		_l_player1_symbol = new JLabel(
 				new ImageIcon(
-						"D:\\Projects\\gameinterface\\main\\demo\\game\\tictactoe\\src\\resources\\cross.jpg")); // TODO:
+						".\\resources\\x.jpg")); // TODO:
 																													// Use
 																													// SVG
 																													// images
@@ -91,7 +112,7 @@ public class GameUI extends JFrame {
 																		// GameController
 		_l_player2_symbol = new JLabel(
 				new ImageIcon(
-						"D:\\Projects\\gameinterface\\main\\demo\\game\\tictactoe\\src\\resources\\o.jpg")); // TODO:
+						".\\resources\\o.jpg")); // TODO:
 																												// Use
 																												// SVG
 																												// images
@@ -105,8 +126,8 @@ public class GameUI extends JFrame {
 		this.add(_p_status, BorderLayout.PAGE_END);
 
 		// Center
-		_g_board = new GameBoard();
-		this.add(_g_board, BorderLayout.CENTER);
+		_gb_board = new GameBoard();
+		this.add(_gb_board, BorderLayout.CENTER);
 		// Game Board
 	}
 }
