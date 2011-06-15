@@ -2,16 +2,15 @@
 <Root>
   <TimeOut>
     <PlayerAliveTimeOutMultiplier>2</PlayerAliveTimeOutMultiplier>
-    <PlayerLocalProcess>5000</PlayerLocalProcess>
+    <PlayerLocalProcess>500000000</PlayerLocalProcess>
   </TimeOut>
   <Player>
     <PlayerType>PlayerLocalProcess</PlayerType>
-    <ProcessLocation>..\..\players\ConsoleApplication4\ConsoleApplication4\bin\Debug\ConsoleApplication4.exe</ProcessLocation>
+    <ProcessLocation>..\..\players\TicTacToe_Alok\TicTacToe_Alok\bin\Debug\TicTacToe_Alok.exe</ProcessLocation>
   </Player>
 
   <Player>
     <PlayerType>PlayerLocalProcess</PlayerType>
-    <ProcessLocation>..\..\players\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe</ProcessLocation>
+    <ProcessLocation>..\..\players\\PlayerViji.exe</ProcessLocation>
   </Player>
 </Root>
-
