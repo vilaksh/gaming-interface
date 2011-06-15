@@ -149,7 +149,7 @@ int main()
     while(!gameover)
     {
         std::cin>>b;
-        if(b == 'W' || b == 'L' || b == 'w' || b == 'l')
+        if(b != 'c' && b !='C' )
         {
             gameover = true;
             continue;        
