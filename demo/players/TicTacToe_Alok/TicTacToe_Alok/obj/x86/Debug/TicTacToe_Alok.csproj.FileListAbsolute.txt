@@ -1,0 +1,5 @@
+D:\Projects\gaming-interface\branches\main\demo\players\TicTacToe_Alok\TicTacToe_Alok\bin\Debug\TicTacToe_Alok.exe
+D:\Projects\gaming-interface\branches\main\demo\players\TicTacToe_Alok\TicTacToe_Alok\bin\Debug\TicTacToe_Alok.pdb
+D:\Projects\gaming-interface\branches\main\demo\players\TicTacToe_Alok\TicTacToe_Alok\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Projects\gaming-interface\branches\main\demo\players\TicTacToe_Alok\TicTacToe_Alok\obj\x86\Debug\TicTacToe_Alok.exe
+D:\Projects\gaming-interface\branches\main\demo\players\TicTacToe_Alok\TicTacToe_Alok\obj\x86\Debug\TicTacToe_Alok.pdb
