@@ -1,7 +1,7 @@
 #include<iostream>
 
-char board[3][3];
-char myCoin, oppCoin, empty;
+int board[3][3];
+int myCoin, oppCoin, empty;
     
 int valuepos(int row, int col)
 {
@@ -143,6 +143,7 @@ int main()
 {
     bool gameover = false;
     char b;
+    int cbrd;
     
     std::cin>>myCoin>>oppCoin>>empty;
 
@@ -158,8 +159,8 @@ int main()
         for(int i=0;i<3;i++)
          for(int j=0;j<3;j++)
          {
-                 std::cin>>b;        
-                 board[i][j] = b;
+                 std::cin>>cbrd;        
+                 board[i][j] = cbrd;
          }
         
         int maxvalue = -1;
