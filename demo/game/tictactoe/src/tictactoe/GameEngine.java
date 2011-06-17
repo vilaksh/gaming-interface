@@ -38,6 +38,11 @@ public class GameEngine extends Game {
 		return true;
 	}
 
+	public void Clean()
+	{
+		
+	}
+	
 	@Override
 	protected Integer _get_next_player() {
 		_i_current_player++;
@@ -103,22 +108,27 @@ public class GameEngine extends Game {
 	}
 
 	private boolean CheckAndSendGameStatus(int current_player) {
-		ArrayList<String> inputArray = new ArrayList<String>();
+		ArrayList<String> inputArray1 = new ArrayList<String>();
+		ArrayList<String> inputArray2 = new ArrayList<String>();
 		// Send Game status..
 		if (!isGameOver()) {
-			inputArray.clear();
-			inputArray.add("c");
-			SendPlayerInput(current_player, inputArray); // automatically increments the
+			inputArray1.clear();
+			inputArray1.add("c");
+			SendPlayerInput(current_player, inputArray1); // automatically increments the
 			return false;
 		} else {
 			if (_i_player_won == current_player) {
-				inputArray.add("w");
+				inputArray1.add("w");
+				inputArray2.add("l");
 			} else if (_i_player_won == 1 - current_player) {
-				inputArray.add("l");
+				inputArray1.add("l");
+				inputArray2.add("w");
 			} else {
-				inputArray.add("d");
+				inputArray1.add("d");
+				inputArray2.add("d");
 			}
-			SendPlayerInput(current_player, inputArray);
+			SendPlayerInput(current_player, inputArray1);
+			SendPlayerInput(1-current_player, inputArray2);
 			return true;
 		}
 
@@ -127,9 +137,34 @@ public class GameEngine extends Game {
 	@Override
 	public boolean ExecuteGame() {
 		// Send initial data to player 1
+		ArrayList<String> inputArray1 = new ArrayList<String>();
 
-		// send initial data to player 2
+		inputArray1.add("0");
+		SendPlayerInput(0, inputArray1); 
+		
+		inputArray1.clear();
+		inputArray1.add("1");
+		SendPlayerInput(0, inputArray1); 
 
+		inputArray1.clear();
+		inputArray1.add("-1");
+		SendPlayerInput(0, inputArray1); 
+
+
+		
+		inputArray1.clear();
+		inputArray1.add("1");
+		SendPlayerInput(1, inputArray1); 
+		
+		inputArray1.clear();
+		inputArray1.add("0");
+		SendPlayerInput(1, inputArray1); 
+
+		inputArray1.clear();
+		inputArray1.add("-1");
+		SendPlayerInput(1, inputArray1); 
+
+		
 		boolean game_over = false;
 		while (!game_over) {
 			int current_player = _get_next_player();
