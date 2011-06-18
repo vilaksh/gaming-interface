@@ -24,7 +24,7 @@ public class GameEngine extends Game {
 			return false;
 
 		_gb_board = gb;
-		_i_current_player = -1;
+		_i_current_player = 0;
 		_i_player_won = -1;
 		_player_won_coz_err = -1;
 		matrix = new int[9];
@@ -177,6 +177,13 @@ public class GameEngine extends Game {
 	//returns true if game over..
 	private boolean HandlePlayer(int current_player)
 	{
+		try {
+			Thread.sleep(1500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		int x, y;
 		ArrayList<String> outArray = new ArrayList<String>();
 		ArrayList<String> inArray = new ArrayList<String>();

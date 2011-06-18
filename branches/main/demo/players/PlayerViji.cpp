@@ -5,36 +5,43 @@ int myCoin, oppCoin, empty;
     
 int valuepos(int row, int col)
 {
-    if(row == 1 && col == 1)
-     return 50;
-
-     int val = 0;
-
+    int val = 0, inc = 0;
+    
+     
      if((row+col)%2 ==0)
       val++;
      
+     inc = 0;
       for(int i=0;i<3;i++)
       {
-           if(board[row][i] == empty || board[row][i] == myCoin)
-               val+=2;
+           if(board[row][i] == empty)
+               inc+=2;
+            else if(board[row][i] == oppCoin)
+             inc += 3;
            else
            {
-               val = val - i*2;
+               inc = 0;               
                break;
             }
        }
-
+       val += inc;       
+       
+       inc = 0;
       for(int i=0;i<3;i++)
       {
-          if(board[i][col] == empty || board[i][col] == myCoin)
-                val+=2;
+          if(board[i][col] == empty)
+                inc+=2;
+          else if (board[i][col] == oppCoin)
+             inc += 3;
           else
           {
-              val = val - i*2;
+              inc = 0;
               break;
            }
       }
-      
+      val+=inc;      
+
+      inc = 0;
       if( (row+col)%2 != 0)
       {//std::cout<<"Value of"<<row<<" "<<col<<" "<<val<<"\n";
        return val;}
@@ -44,39 +51,44 @@ int valuepos(int row, int col)
    {  
     for(int i=0;i<3;i++)
     {
-      if(board[i][i] == myCoin || board[i][i] == empty)
-       val+=2;
-
+      if(board[i][i] == oppCoin)
+       inc+=3;
+       else if(board[i][i] == empty)
+        inc+=2;
        else
        {
-           val = val-i*2;
+           inc = 0;
            break;
        }
     }
     }
-    else
+    if(row+col == 2)
     {   
 
      // for winning minor diagonal wise     
     for(int i=0;i<3;i++)
     {
-      if(board[i][2-i] == myCoin || board[i][2-i] == empty)
-       val+=2;
+      if(board[i][2-i] == oppCoin)
+       inc+=3;
+       else if(board[i][2-i] == empty)
+        inc+=2;
 
        else
        {
-            val = val - i*2;
+            inc = 0;
             break;
         }
     }  
     }
+
+    val+=inc;
     
     //std::cout<<"Value of"<<row<<" "<<col<<" "<<val<<"\n";
     return val;
       
 }
 
-bool willwin(char coin, int row, int col)
+bool willwin(int coin, int row, int col)
 {
      int count;
      
@@ -146,6 +158,7 @@ int main()
     int cbrd;
     
     std::cin>>myCoin>>oppCoin>>empty;
+    bool firstturn = true;
 
     while(!gameover)
     {
@@ -163,6 +176,13 @@ int main()
                  board[i][j] = cbrd;
          }
         
+        if(firstturn)
+        {
+          std::cout<<"1"<<"\n"<<"1"<<"\n";
+          firstturn = false;
+          continue;
+         }
+
         int maxvalue = -1;
         bool flag = false;
         int rrow, rcol;
@@ -175,13 +195,13 @@ int main()
     
                 if(willwin(myCoin, i, j))
                 {
-                   //std::cout<<"my win\n"<<i<<"\n"<<j<<"\n";
+                   std::cout<<i<<"\n"<<j<<"\n";
                    flag = true;
                    break;
                } 
                else if(willwin(oppCoin, i, j))
                {
-                    //std::cout<<"opp win\n"<<i<<"\n"<<j<<"\n";
+                    std::cout<<i<<"\n"<<j<<"\n";
                     flag = true;
                     break;
                 }
