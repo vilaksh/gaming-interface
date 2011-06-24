@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Root>
+  <TimeOut>
+    <PlayerAliveTimeOutMultiplier>2</PlayerAliveTimeOutMultiplier>
+    <PlayerLocalProcess>500000000</PlayerLocalProcess>
+  </TimeOut>
+  <Player>
+    <PlayerType>PlayerLocalProcess</PlayerType>
+    <ProcessLocation>..\..\players\PlayerViji.exe</ProcessLocation>
+  </Player>
+  
+  <Player>
+    <PlayerType>PlayerLocalProcess</PlayerType>
+    <ProcessLocation>..\..\players\PlayerViji.exe</ProcessLocation>
+  </Player>
+</Root>
