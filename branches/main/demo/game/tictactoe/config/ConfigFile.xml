@@ -6,11 +6,11 @@
   </TimeOut>
   <Player>
     <PlayerType>PlayerLocalProcess</PlayerType>
-    <ProcessLocation>..\..\players\TicTacToe_Alok\TicTacToe_Alok\bin\Debug\TicTacToe_Alok.exe</ProcessLocation>
+    <ProcessLocation>..\..\players\PlayerViji.exe</ProcessLocation>
   </Player>
-
+  
   <Player>
     <PlayerType>PlayerLocalProcess</PlayerType>
-    <ProcessLocation>..\..\players\\PlayerViji.exe</ProcessLocation>
+    <ProcessLocation>..\..\players\PlayerViji.exe</ProcessLocation>
   </Player>
 </Root>
