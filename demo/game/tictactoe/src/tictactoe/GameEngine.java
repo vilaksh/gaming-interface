@@ -24,7 +24,7 @@ public class GameEngine extends Game {
 			return false;
 
 		_gb_board = gb;
-		_i_current_player = 0;
+		_i_current_player = -1;
 		_i_player_won = -1;
 		_player_won_coz_err = -1;
 		matrix = new int[9];
